@@ -1,0 +1,15 @@
+.HelloWorld {
+  text-align: center;
+  padding: 10px;
+  color: navy;
+  font-size: 40px;
+}
+
+/**
+ *  CSS uses the Block Element Modifier naming convention, an example :
+.HelloWorld__ElementName {
+  display: inline-block;
+  font-size: large;
+}
+ * For more information - http://getbem.com/
+ */
