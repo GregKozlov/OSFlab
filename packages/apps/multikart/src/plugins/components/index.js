@@ -3,3 +3,4 @@
  */
 
 export * from '@oracle-cx-commerce/react-widgets';
+export const _HelloWorld = () => import('./hello-world');

@@ -4,9 +4,7 @@
   "shortName": "home",
   "layout": [
     {
-      "components": [
-        "Login"
-      ],
+      "components": ["_HelloWorld1", "_HelloWorld2"],
       "width": 12,
       "type": "main"
     }
