@@ -1,0 +1,44 @@
+{
+  "name": "@oracle-cx-commerce/workspace",
+  "version": "2.18.0",
+  "private": true,
+  "engines": {
+    "node": ">=10.12",
+    "yarn": "^1.12"
+  },
+  "scripts": {
+    "stylelint": "stylelint **/*.css --ignore-disables",
+    "eslint": "eslint .",
+    "eslint:fix": "eslint --fix .",
+    "prettier:fix": "prettier --config .prettierrc.js --write \"{packages,qa}/**/*.js\"",
+    "lint": "yarn eslint && yarn stylelint",
+    "build:prod": "occ build --production",
+    "build": "occ build --watch",
+    "test": "jest -c jest.config.js",
+    "test:debug": "node --inspect-brk node_modules/jest/bin/jest.js -i -c jest.config.js",
+    "test:api": "jest -c jest.config.api.js",
+    "test:api:debug": "node --inspect-brk node_modules/jest/bin/jest.js -i -c jest.config.api.js",
+    "deploy": "occ deploy",
+    "delete": "occ delete",
+    "download": "occ download",
+    "output": "occ output",
+    "seed": "yarn deploy --reset --publish",
+    "start:prod": "occ serve",
+    "start": "nodemon --inspect node_modules/@oracle-cx-commerce/cli/cli.js serve",
+    "configure": "occ configure",
+    "deploy-status": "occ deploy-status",
+    "deploy-log": "occ deploy-log",
+    "redeploy": "occ redeploy",
+    "download-assets": "occ download-assets"
+  },
+  "dependencies": {
+    "@oracle-cx-commerce/cli": "2.18.0",
+    "@oracle-cx-commerce/cli-init": "2.18.0"
+  },
+  "devDependencies": {
+    "@oracle-cx-commerce/dev": "2.18.0"
+  },
+  "workspaces": [
+    "packages/**"
+  ]
+}

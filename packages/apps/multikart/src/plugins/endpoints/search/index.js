@@ -1,0 +1,50 @@
+/*
+ ** Copyright (c) 2019 Oracle and/or its affiliates.
+ */
+
+/*
+ ** Copyright (c) 2019 Oracle and/or its affiliates.
+ */
+
+import {createEndpoint, getBodyAsJson} from '@oracle-cx-commerce/endpoints/factory';
+import {getCurrentPageId} from '@oracle-cx-commerce/commerce-utils/selector';
+import {populateError} from '@oracle-cx-commerce/endpoints/utils';
+
+export * from '@oracle-cx-commerce/endpoints';
+
+/**
+ * Perform any necessary extra processing on the payload object that is
+ * included when dispatching an action that invokes this endpoint.
+ */
+export const processInput = payload => {
+  return {
+    params: [],
+    query: {...payload}
+  };
+};
+
+/**
+ * Convert the response from the endpoint invocation into an object
+ * to be merged into the application state.
+ */
+export const processOutput = async (response, state) => {
+  const json = await getBodyAsJson(response);
+  const pageId = getCurrentPageId(state);
+
+  if (response.ok) {
+    const searchResults = {...json};
+
+    return {searchRepository: {pages: {[pageId]: searchResults}}};
+  }
+
+  return populateError(response, json);
+};
+
+/**
+ * Endpoint adapter for the 'search' action.
+ * This maps the action to an 'assemblerPages' endpoint invocation.
+ */
+export default createEndpoint('search', {
+  processInput,
+  processOutput
+});

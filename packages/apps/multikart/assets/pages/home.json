@@ -1,0 +1,14 @@
+{
+  "title": "Denim Collective - Homepage",
+  "address": "/home",
+  "shortName": "home",
+  "layout": [
+    {
+      "components": [
+        "Login"
+      ],
+      "width": 12,
+      "type": "main"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "@oracle-cx-commerce/multikart",
+  "version": "2.18.0",
+  "private": true,
+  "description": "Multikart Application",
+  "dependencies": {
+    "@oracle-cx-commerce/actions": "2.18.0",
+    "@oracle-cx-commerce/endpoints": "2.18.0",
+    "@oracle-cx-commerce/occ-metadata": "2.18.0",
+    "@oracle-cx-commerce/react-app": "2.18.0",
+    "@oracle-cx-commerce/react-components": "2.18.0",
+    "@oracle-cx-commerce/react-widgets": "2.18.0",
+    "@oracle-cx-commerce/styles": "2.18.0",
+    "@oracle-cx-commerce/subscribers": "2.18.0",
+    "sass": "^1.30.0"
+  },
+  "devDependencies": {
+    "@oracle-cx-commerce/rollup-config": "2.18.0"
+  },
+  "occ": {
+    "namespace": "occ.react",
+    "locales": [
+      "en",
+      "de"
+    ],
+    "aliases": {
+      "@oracle-cx-commerce/styles/common.css": "../../../packages/apps/multikart/src/core/ui/styles/common.css"
+    }
+  }
+}

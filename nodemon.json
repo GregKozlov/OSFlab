@@ -1,0 +1,15 @@
+{
+  "ignore": [
+    "**/@(docs|test|perf)/**"
+  ],
+  "watch": [
+    "**/config/**",
+    "packages/apps/**/dist/**",
+    "packages/tools/**"
+  ],
+  "delay": "250",
+  "env": {
+    "NODE_ENV": "development",
+    "NODE_TLS_REJECT_UNAUTHORIZED": 0
+  }
+} 

@@ -1,0 +1,14 @@
+{
+  "title": "Error 404 - Not Found",
+  "address": "/404",
+  "shortName": "404",
+  "layout": [
+    {
+      "type": "main",
+      "width": 12,
+      "components": [
+        "Error"
+      ]
+    }
+  ]
+}
