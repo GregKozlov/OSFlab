@@ -1,10 +1,10 @@
 {
-  "title": "Denim Collective - Homepage",
+  "title": "OSF",
   "address": "/home",
   "shortName": "home",
   "layout": [
     {
-      "components": ["_HelloWorld1", "_HelloWorld2"],
+      "components": ["fullbleed-instance"],
       "width": 12,
       "type": "main"
     }
