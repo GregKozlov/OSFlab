@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.product-tile {
+  width: 275px;
+  height: 550px;
+  border: 1px solid black;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* Top card section */
+.product-tile__top-section {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+}
+.product-tile__top-section > a {
+  margin-top: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+.product-tile__top-section > span {
+  margin-top: 10px;
+}
+.product-tile__top-section > span:last-child {
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+/* Mid card section */
+.product-tile__mid-section > span {
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+.product-tile__mid-section > div {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+.product-tile__mid-section > div > input {
+  margin: 0 5px;
+  padding: 10px;
+  width: 80px;
+  text-align: center;
+  border-radius: 3px;
+  border: 1px solid black;
+  outline: none;
+}
+.product-tile__mid-section > div > span:first-child {
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+/* Bottom card section */
+.product-tile__bottom-section > button {
+  width: 100%;
+  padding: 10px;
+  background-color: #df0000;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.product-tile__bottom-section > button:hover {
+  transform: scale(1.1);
+}
