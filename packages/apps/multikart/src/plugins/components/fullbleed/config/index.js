@@ -9,7 +9,8 @@ const config = {
       id: 'image',
       type: 'stringType',
       helpTextResourceId: 'sampleHelpText',
-      labelResourceId: 'sampleLabel'
+      labelResourceId: 'sampleLabel',
+      required: true
     },
     {
       id: 'altImageText',
@@ -21,13 +22,15 @@ const config = {
       id: 'linkToResource',
       type: 'stringType',
       helpTextResourceId: 'sampleHelpText',
-      labelResourceId: 'sampleLabel'
+      labelResourceId: 'sampleLabel',
+      required: true
     },
     {
       id: 'bannerText',
       type: 'stringType',
       helpTextResourceId: 'sampleHelpText',
-      labelResourceId: 'sampleLabel'
+      labelResourceId: 'sampleLabel',
+      required: true
     },
     {
       id: 'selectedPosition',

@@ -1,6 +1,7 @@
 {
   "en": {
     "altImageText": "Image of gray square 2000x2000",
-    "bannerText": "This is full-bleed image"
+    "bannerText": "This is full-bleed image",
+    "ariaLabel": "Link to google.com website"
   }
 }
