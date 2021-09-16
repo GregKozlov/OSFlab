@@ -4,19 +4,21 @@ import Styled from '@oracle-cx-commerce/react-components/styled';
 import css from './styles.scss';
 
 const ProductTile = props => {
+  const {image, imageAlt, productLink, productName, productId, productPrice} = props;
+
   return (
     <Styled id="ProductTile" css={css}>
       <div className="product-tile">
         <div className="product-tile__top-section">
-          <img src="https://bla.com.au/wp-content/uploads/2020/04/123360.jpg" alt="Golight stryker bulb" />
-          <a href="https://www.google.com/">
-            <span>Golight stryker HID w/wireless HH remote</span>
+          <img src={image} alt={imageAlt} />
+          <a href={productLink}>
+            <span>{productName}</span>
           </a>
-          <span>#65343611TU</span>
+          <span>{productId}</span>
         </div>
 
         <div className="product-tile__mid-section">
-          <span>$962.95</span>
+          <span>{productPrice}</span>
           <div>
             <span>Qty:</span>
             <input type="text" defaultValue="1" />

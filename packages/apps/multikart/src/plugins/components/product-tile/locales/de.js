@@ -1,3 +1,2 @@
-export const helloText = '[de]sample component text[de]';
-export const labelExtraInfo = '[de]...with some extra info![de]';
-export const labelSampleTranslation = '[de]A Translated Label[de]';
+export const altImageText = 'Golight stryker bulb';
+export const productName = 'Golight stryker HID w/wireless HH remote';

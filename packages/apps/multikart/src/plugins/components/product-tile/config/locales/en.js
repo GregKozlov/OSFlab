@@ -1,2 +1,4 @@
-export const includeExtraInfoLabel = 'Display extra info';
-export const includeExtraInfoHelpText = 'If selected, the display will include some extra info.';
+export const imageHelpText = 'Image help text';
+export const imageLabel = 'Image label';
+export const productHelpText = 'Product help text';
+export const productLabel = 'Product label';

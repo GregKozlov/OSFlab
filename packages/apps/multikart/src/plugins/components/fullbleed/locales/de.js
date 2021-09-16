@@ -1,3 +1,3 @@
-export const helloText = '[de]sample component text[de]';
-export const labelExtraInfo = '[de]...with some extra info![de]';
-export const labelSampleTranslation = '[de]A Translated Label[de]';
+export const altImageText = 'Image of gray square 2000x2000';
+export const bannerText = 'This is full-bleed image';
+export const ariaLabel = 'Link to google.com website';
