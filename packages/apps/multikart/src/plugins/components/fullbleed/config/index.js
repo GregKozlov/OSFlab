@@ -8,45 +8,32 @@ const config = {
     {
       id: 'image',
       type: 'stringType',
-      helpTextResourceId: 'sampleHelpText',
-      labelResourceId: 'sampleLabel',
+      helpTextResourceId: 'imageHelpText',
+      labelResourceId: 'imageLabel',
       required: true
-    },
-    {
-      id: 'altImageText',
-      type: 'stringType',
-      helpTextResourceId: 'sampleHelpText',
-      labelResourceId: 'sampleLabel'
     },
     {
       id: 'linkToResource',
       type: 'stringType',
-      helpTextResourceId: 'sampleHelpText',
-      labelResourceId: 'sampleLabel',
-      required: true
-    },
-    {
-      id: 'bannerText',
-      type: 'stringType',
-      helpTextResourceId: 'sampleHelpText',
-      labelResourceId: 'sampleLabel',
+      helpTextResourceId: 'resourceHelpText',
+      labelResourceId: 'resourceLabel',
       required: true
     },
     {
       id: 'selectedPosition',
       type: 'optionType',
-      helpTextResourceId: 'sampleHelpText',
-      labelResourceId: 'sampleLabel',
+      helpTextResourceId: 'selectedHelpText',
+      labelResourceId: 'selectedLabel',
       options: [
         {
           id: 'top',
           value: 'fullbleed__text_top',
-          labelResourceId: 'topLabel'
+          labelResourceId: 'selectedTopLabel'
         },
         {
           id: 'bottom',
           value: 'fullbleed__text_bottom',
-          labelResourceId: 'bottomLabel'
+          labelResourceId: 'selectedBottomLabel'
         }
       ]
     }
