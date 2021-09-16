@@ -4,7 +4,7 @@
   "shortName": "home",
   "layout": [
     {
-      "components": ["fullbleed-instance"],
+      "components": ["product-tile-instance"],
       "width": 12,
       "type": "main"
     }

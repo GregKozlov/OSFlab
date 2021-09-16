@@ -6,21 +6,18 @@ import * as de from './locales/de';
 const config = {
   properties: [
     {
-      id: 'configIncludeExtraInfo',
-      /**
-       * Supported config types:
-       *  - stringType
-       *  - booleanType
-       *  - optionType
-       *  - multiSelectOptionType
-       *  - sectionTitleType
-       *  - collectionType
-       *  - mediaType
-       */
-      type: 'booleanType',
-      defaultValue: false,
-      labelResourceId: 'includeExtraInfoLabel',
-      helpTextResourceId: 'includeExtraInfoHelpText'
+      id: 'image',
+      type: 'stringType',
+      helpTextResourceId: 'imageHelpText',
+      labelResourceId: 'imageLabel',
+      required: true
+    },
+    {
+      id: 'productLink',
+      type: 'stringType',
+      helpTextResourceId: 'productHelpText',
+      labelResourceId: 'productLabel',
+      required: true
     }
   ],
   locales: {
