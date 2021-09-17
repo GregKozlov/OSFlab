@@ -4,7 +4,17 @@ import Styled from '@oracle-cx-commerce/react-components/styled';
 import css from './styles.scss';
 
 const ProductTile = props => {
-  const {image, imageAlt, productLink, productName, productId, productPrice} = props;
+  const {
+    image = 'https://bla.com.au/wp-content/uploads/2020/04/123360.jpg',
+    imageAlt = 'Golight stryker bulb',
+    productLink = 'https://www.google.com/',
+    productName = 'Golight stryker HID w/wireless HH remote',
+    productId = '#65343611TU',
+    productPrice = '962.95',
+    qty = 'Qty:',
+    each = 'Each',
+    addToCart = 'Add to cart'
+  } = props;
 
   return (
     <Styled id="ProductTile" css={css}>
@@ -18,16 +28,16 @@ const ProductTile = props => {
         </div>
 
         <div className="product-tile__mid-section">
-          <span>{productPrice}</span>
+          <span>${productPrice}</span>
           <div>
-            <span>Qty:</span>
+            <span>{qty}</span>
             <input type="text" defaultValue="1" />
-            <span>Each</span>
+            <span>{each}</span>
           </div>
         </div>
 
         <div className="product-tile__bottom-section">
-          <button type="button">Add to Cart</button>
+          <button type="button">{addToCart}</button>
         </div>
       </div>
     </Styled>

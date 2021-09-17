@@ -1,6 +1,9 @@
 {
   "en": {
-    "altImageText": "Golight stryker bulb",
-    "productName": "Golight stryker HID w/wireless HH remote"
+    "imageAlt": "Golight stryker bulb",
+    "productName": "Golight stryker HID w/wireless HH remote",
+    "qty": "Qty:",
+    "each": "Each",
+    "addToCart": "Add to Cart"
   }
 }
