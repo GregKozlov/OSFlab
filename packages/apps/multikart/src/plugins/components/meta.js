@@ -6,3 +6,4 @@ export * from '@oracle-cx-commerce/react-widgets/meta';
 export {default as _HelloWorld} from './hello-world/meta';
 export {default as _Fullbleed} from './fullbleed/meta';
 export {default as _ProductTile} from './product-tile/meta';
+export {default as _Slider} from './slider/meta';

@@ -4,7 +4,7 @@
   "shortName": "home",
   "layout": [
     {
-      "components": ["product-tile-instance"],
+      "components": ["slider-instance"],
       "width": 12,
       "type": "main"
     }
