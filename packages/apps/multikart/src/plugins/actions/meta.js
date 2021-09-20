@@ -5,3 +5,5 @@
 export * from '@oracle-cx-commerce/actions/meta';
 
 export {search as _search} from './search';
+
+export {savePageViewsCount as _savePageViewsCount} from './page-views/meta';

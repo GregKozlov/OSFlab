@@ -3,3 +3,5 @@
  */
 
 export * from '@oracle-cx-commerce/subscribers';
+
+export const savePageViewsCount = () => import('./page-views');
