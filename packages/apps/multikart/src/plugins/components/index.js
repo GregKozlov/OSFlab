@@ -8,3 +8,5 @@ export const _Fullbleed = () => import('./fullbleed');
 export const _ProductTile = () => import('./product-tile');
 export const _Slider = () => import('./slider');
 export const _PageViewSubscriber = () => import('./page-view-subscriber');
+
+export const _CurrencySelector = () => import('./currency-selector');
