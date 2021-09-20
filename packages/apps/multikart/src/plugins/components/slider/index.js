@@ -5,7 +5,18 @@ import css from './styles.scss';
 import ProductTile from '../product-tile';
 
 const SlickSlider = props => {
-  const {productIds, title, loading} = props;
+  const {
+    productIds,
+    title,
+    loading,
+    shownInFullSize,
+    shownIn1280,
+    shownIn920,
+    shownIn640,
+    qty,
+    each,
+    addToCart
+  } = props;
 
   const params = {
     productIds,
@@ -46,15 +57,15 @@ const SlickSlider = props => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToShow: parseInt(shownInFullSize, 10),
+    slidesToScroll: parseInt(shownInFullSize, 10),
     initialSlide: 0,
     responsive: [
       {
         breakpoint: 1280,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: parseInt(shownIn1280, 10),
+          slidesToScroll: parseInt(shownIn1280, 10),
           infinite: true,
           dots: false
         }
@@ -62,8 +73,8 @@ const SlickSlider = props => {
       {
         breakpoint: 920,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: parseInt(shownIn920, 10),
+          slidesToScroll: parseInt(shownIn920, 10),
           infinite: true,
           dots: false
         }
@@ -71,8 +82,8 @@ const SlickSlider = props => {
       {
         breakpoint: 640,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: parseInt(shownIn640, 10),
+          slidesToScroll: parseInt(shownIn640, 10),
           infinite: true,
           dots: false
         }
@@ -94,6 +105,9 @@ const SlickSlider = props => {
                 productName={item.displayName}
                 productId={item.id}
                 productPrice={item.listPrices.defaultPriceGroup}
+                qty={qty}
+                each={each}
+                addToCart={addToCart}
               />
             </div>
           ))}

@@ -1,0 +1,9 @@
+.CurrencySelector {
+  padding: 10px;
+}
+.CurrencySelector__Label {
+  padding-right: 10px;
+}
+.CurrencySelector__SelectedCurrencyInfo {
+  padding-top: 10px;
+}
