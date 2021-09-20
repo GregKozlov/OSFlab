@@ -1,6 +1,8 @@
 {
   "en": {
-    "title": "Featured products"
+    "title": "Featured products",
+    "qty": "Qty:",
+    "each": "Each",
+    "addToCart": "Add to cart"
   }
 }
-
