@@ -5,7 +5,7 @@ import css from './styles.scss';
 import ProductTile from '../product-tile';
 
 const SlickSlider = props => {
-  const {productIds} = props;
+  const {productIds, title, loading} = props;
 
   const params = {
     productIds,
@@ -31,9 +31,7 @@ const SlickSlider = props => {
   const fetchItems = async () => {
     const data = await fetch(`/ccstore/v1/products?${fetchQueryString}`);
     const result = await data.json();
-    console.log('--------------------RESULT  Items--------------------', result.items);
     setItems(result);
-    console.log('--------------------RESULT--------------------', result);
   };
 
   useEffect(() => {
@@ -41,7 +39,7 @@ const SlickSlider = props => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!items) {
-    return <h1>Loading...</h1>;
+    return <h1>{loading}</h1>;
   }
 
   const settings = {
@@ -53,7 +51,7 @@ const SlickSlider = props => {
     initialSlide: 0,
     responsive: [
       {
-        breakpoint: 1500,
+        breakpoint: 1280,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
@@ -62,10 +60,19 @@ const SlickSlider = props => {
         }
       },
       {
-        breakpoint: 1190,
+        breakpoint: 920,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
+          infinite: true,
+          dots: false
+        }
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
           infinite: true,
           dots: false
         }
@@ -76,7 +83,7 @@ const SlickSlider = props => {
   return (
     <Styled id="Slider" css={css}>
       <div>
-        <h2 className="slider-title"> Featured products </h2>
+        <h2 className="slider-title">{title}</h2>
         <Slider {...settings} className="slider">
           {items.items.map(item => (
             <div key={item.id}>

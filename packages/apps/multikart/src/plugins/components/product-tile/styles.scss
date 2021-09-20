@@ -76,3 +76,14 @@
     }
   }
 }
+
+@media screen and (max-width: 1440px) {
+  .product-tile {
+    padding: 15px;
+    width: 220px;
+    height: 440px;
+  }
+  .slider > div img {
+    max-width: 190px;
+  }
+}
