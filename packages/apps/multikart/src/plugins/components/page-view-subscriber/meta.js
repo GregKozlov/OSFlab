@@ -33,7 +33,3 @@ export default {
    */
   config: mergeDefaultConfig(config)
 };
-
-export const savePageViewsCount = {
-  endpoints: ['savePageViewsCount']
-};
