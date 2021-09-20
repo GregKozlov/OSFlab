@@ -7,3 +7,4 @@ export {default as _HelloWorld} from './hello-world/meta';
 export {default as _Fullbleed} from './fullbleed/meta';
 export {default as _ProductTile} from './product-tile/meta';
 export {default as _Slider} from './slider/meta';
+export {default as _PageViewSubscriber} from './page-view-subscriber/meta';

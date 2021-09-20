@@ -3,3 +3,5 @@
  */
 
 export * from '@oracle-cx-commerce/subscribers/meta';
+
+export {default as _savePageViewsCount} from './page-views/meta';
