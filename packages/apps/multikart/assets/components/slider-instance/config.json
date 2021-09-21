@@ -1,7 +1,7 @@
 {
   "productIds": "p10002,p10001,p10024,p10003,p10010,p10037,p10029,p10021,p10016,p10008,p10027",
   "shownInFullSize": "4",
-  "shownIn1280": "3",
-  "shownIn920": "2",
-  "shownIn640": "1"
+  "shownInWideScreen": "3",
+  "shownInMediumScreen": "2",
+  "shownInSmallScreen": "1"
 }

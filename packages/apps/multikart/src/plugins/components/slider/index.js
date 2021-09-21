@@ -10,9 +10,9 @@ const SlickSlider = props => {
     title,
     loading,
     shownInFullSize,
-    shownIn1280,
-    shownIn920,
-    shownIn640,
+    shownInWideScreen,
+    shownInMediumScreen,
+    shownInSmallScreen,
     qty,
     each,
     addToCart
@@ -64,8 +64,8 @@ const SlickSlider = props => {
       {
         breakpoint: 1280,
         settings: {
-          slidesToShow: parseInt(shownIn1280, 10),
-          slidesToScroll: parseInt(shownIn1280, 10),
+          slidesToShow: parseInt(shownInWideScreen, 10),
+          slidesToScroll: parseInt(shownInWideScreen, 10),
           infinite: true,
           dots: false
         }
@@ -73,8 +73,8 @@ const SlickSlider = props => {
       {
         breakpoint: 920,
         settings: {
-          slidesToShow: parseInt(shownIn920, 10),
-          slidesToScroll: parseInt(shownIn920, 10),
+          slidesToShow: parseInt(shownInMediumScreen, 10),
+          slidesToScroll: parseInt(shownInMediumScreen, 10),
           infinite: true,
           dots: false
         }
@@ -82,8 +82,8 @@ const SlickSlider = props => {
       {
         breakpoint: 640,
         settings: {
-          slidesToShow: parseInt(shownIn640, 10),
-          slidesToScroll: parseInt(shownIn640, 10),
+          slidesToShow: parseInt(shownInSmallScreen, 10),
+          slidesToScroll: parseInt(shownInSmallScreen, 10),
           infinite: true,
           dots: false
         }
