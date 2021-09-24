@@ -1,0 +1,12 @@
+{
+  "title": "Category Page",
+  "address": "/category",
+  "shortName": "category",
+  "layout": [
+    {
+      "type": "main",
+      "width": 12,
+      "components": ["AProductListing_instance"]
+    }
+  ]
+}

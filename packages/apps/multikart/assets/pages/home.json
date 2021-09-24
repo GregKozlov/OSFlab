@@ -11,9 +11,12 @@
     {
       "type": "main",
       "width": 12,
-      "components": [
-        "_CurrencySelector"
-      ]
-}
+      "components": ["_CurrencySelector"]
+    },
+    {
+      "type": "main",
+      "width": 12,
+      "components": ["AProductListing_instance"]
+    }
   ]
 }
