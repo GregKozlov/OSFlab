@@ -1,0 +1,13 @@
+import React from 'react';
+import Styled from '@oracle-cx-commerce/react-components/styled';
+import css from './styles.css';
+
+const AProductListing = props => {
+  return (
+    <Styled id="AProductListing" css={css}>
+      <div className="AProductListing"> Base Component AProductListing</div>
+    </Styled>
+  );
+};
+
+export default AProductListing;
