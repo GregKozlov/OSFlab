@@ -1,16 +1,12 @@
 {
   "regions": [
     {
-      "components": ["product-sorting_instance"],
-      "width": 3
-    },
-    {
       "components": ["product-filters_instance"],
       "width": 3
     },
     {
-      "components": ["product-grid_instance"],
-      "width": 3
+      "components": ["product-sorting_instance", "product-grid_instance"],
+      "width": 9
     }
   ]
 }

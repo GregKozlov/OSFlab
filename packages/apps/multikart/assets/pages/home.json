@@ -4,19 +4,9 @@
   "shortName": "home",
   "layout": [
     {
-      "components": ["slider-instance"],
-      "width": 12,
-      "type": "main"
-    },
-    {
       "type": "main",
       "width": 12,
       "components": ["_CurrencySelector"]
-    },
-    {
-      "type": "main",
-      "width": 12,
-      "components": ["AProductListing_instance"]
     }
   ]
 }
