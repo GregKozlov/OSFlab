@@ -1,13 +1,23 @@
 import React from 'react';
+import Region from '@oracle-cx-commerce/react-components/region';
 import Styled from '@oracle-cx-commerce/react-components/styled';
-import css from './styles.css';
+import {getPage, getSearchResults, getCategory} from '@oracle-cx-commerce/commerce-utils/selector';
+import {connect} from '@oracle-cx-commerce/react-components/provider';
+import css from './styles.scss';
 
 const AProductListing = props => {
+  const {regions = [], configuration = {}} = props;
+  const {className = ''} = configuration || {};
+
   return (
-    <Styled id="AProductListing" css={css}>
-      <div className="AProductListing"> Base Component AProductListing</div>
+    <Styled id="Container" css={css}>
+      <section className={`Container__Section ${className}`}>
+        {regions.map(regionId => (
+          <Region key={regionId} regionId={regionId} />
+        ))}
+      </section>
     </Styled>
   );
 };
 
-export default AProductListing;
+export default connect(getCategory)(connect(getSearchResults)(connect(getPage)(AProductListing)));
