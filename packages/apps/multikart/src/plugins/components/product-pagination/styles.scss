@@ -1,0 +1,45 @@
+.product-pagination {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  font-weight: 600;
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 15px;
+    background: rgb(240, 240, 240);
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      background: rgb(180, 180, 180);
+    }
+  }
+}
+
+.product-pagination-pages {
+  display: flex;
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-right: 10px;
+    background: rgb(240, 240, 240);
+    cursor: pointer;
+    width: 40px;
+    border-radius: 50%;
+    transition: 0.3s;
+    &:hover {
+      background: rgb(180, 180, 180);
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    &--active {
+      background: rgb(180, 180, 180);
+    }
+  }
+}

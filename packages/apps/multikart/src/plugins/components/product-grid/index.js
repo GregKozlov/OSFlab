@@ -1,40 +1,19 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import Styled from '@oracle-cx-commerce/react-components/styled';
+import {useSelector} from '@oracle-cx-commerce/react-components/provider';
+import {getSearchResults} from '@oracle-cx-commerce/commerce-utils/selector';
 import ProductTile from '../product-tile';
 
 import css from './styles.scss';
 
 const ProductGrid = props => {
-  const searchParams = {N: '', Ns: '', No: '0', Nrpp: '12'};
-
-  const fetchQueryString = Object.keys(searchParams)
-    .map(key => `${key}=${searchParams[key]}`)
-    .join('&');
-
-  const [sortItems, setSortItems] = useState();
-
-  const fetchItems = async () => {
-    const data = await fetch(`/ccstore/v1/search?${fetchQueryString}`, {
-      categoryId: 'c20001'
-    });
-    const result = await data.json();
-    setSortItems(result);
-    // console.log('----------RESULT----------', result);
-  };
-
-  useEffect(() => {
-    fetchItems();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  if (!sortItems) {
-    return null;
-  }
+  // const result = useSelector(state => state.searchRepository.pages['/jeans/category/c20001/'].resultsList.records);
+  const {resultsList} = useSelector(getSearchResults);
 
   return (
     <Styled id="ProductGrid" css={css}>
       <div className="product-grid">
-        {sortItems.resultsList.records.map(item => {
+        {resultsList.records.map(item => {
           return (
             <div key={item.records[0].attributes['sku.repositoryId']}>
               <ProductTile
@@ -42,7 +21,9 @@ const ProductGrid = props => {
                 imageAlt={item.records[0].attributes['product.primaryImageAltText']}
                 productLink={item.records[0].attributes['product.baseUrl']}
                 productName={item.records[0].attributes['product.primaryImageTitle']}
-                productId={item.records[0].attributes['sku.repositoryId']}
+                productColor={item.records[0].attributes['sku.x_color']}
+                productLength={item.records[0].attributes['sku.x_length']}
+                productWaist={item.records[0].attributes['sku.x_waist']}
                 productPrice={Number(item.records[0].attributes['product.listPrice']).toFixed(2)}
               />
             </div>
