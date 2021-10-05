@@ -5,7 +5,12 @@
       "width": 3
     },
     {
-      "components": ["product-sorting_instance", "product-grid_instance"],
+      "components": [
+        "_ProductBreadcrumbs",
+        "product-sorting_instance",
+        "product-grid_instance",
+        "_ProductPagination"
+      ],
       "width": 9
     }
   ]

@@ -13,3 +13,5 @@ export {default as _AProductListing} from './a-product-listing/meta';
 export {default as _ProductGrid} from './product-grid/meta';
 export {default as _ProductSorting} from './product-sorting/meta';
 export {default as _ProductFilters} from './product-filters/meta';
+export {default as _ProductBreadcrumbs} from './product-breadcrumbs/meta';
+export {default as _ProductPagination} from './product-pagination/meta';

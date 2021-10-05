@@ -9,7 +9,12 @@ const ProductTile = props => {
     imageAlt = 'Golight stryker bulb',
     productLink = 'https://www.google.com/',
     productName = 'Golight stryker HID w/wireless HH remote',
-    productId = '#65343611TU',
+    color = 'Color',
+    length = 'Length',
+    waist = 'Waist',
+    productColor = 'Light Wash',
+    productLength = '36',
+    productWaist = '32',
     productPrice = '962.95',
     qty = 'Qty:',
     each = 'Each',
@@ -24,7 +29,15 @@ const ProductTile = props => {
           <a href={productLink}>
             <span>{productName}</span>
           </a>
-          <span>{productId}</span>
+          <span>
+            {color}: {productColor}
+          </span>
+          <span>
+            {length}: {productLength}
+          </span>
+          <span>
+            {waist}: {productWaist}
+          </span>
         </div>
 
         <div className="product-tile__mid-section">

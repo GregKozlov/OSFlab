@@ -1,0 +1,28 @@
+.product-breadcrumbs {
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    padding: 3px 7px 3px 10px;
+    border-radius: 10px;
+    background: rgb(240, 240, 240);
+    color: #000;
+    margin: 2px;
+    transition: 0.3s;
+    cursor: pointer;
+    &::after {
+      content: "x";
+      font-weight: 300;
+      font-family: Arial, sans-serif;
+      padding: 3px;
+    }
+    &:hover {
+        background: rgb(180, 180, 180);
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

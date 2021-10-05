@@ -4,6 +4,10 @@
     "productName": "Golight stryker HID w/wireless HH remote",
     "qty": "Qty:",
     "each": "Each",
-    "addToCart": "Add to Cart"
+    "addToCart": "Add to Cart",
+    "color": "Color",
+    "length": "Length",
+    "waist": "Waist"
+    
   }
 }

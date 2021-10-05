@@ -1,92 +1,54 @@
-import React, {useState, useEffect} from 'react';
+import React, {useContext} from 'react';
+import {StoreContext} from '@oracle-cx-commerce/react-ui/contexts';
+
 import Styled from '@oracle-cx-commerce/react-components/styled';
 import Collapsible from '@oracle-cx-commerce/react-components/collapsible';
+
+import {useSelector} from '@oracle-cx-commerce/react-components/provider';
+import {getSearchResults} from '@oracle-cx-commerce/commerce-utils/selector';
 
 import css from './styles.scss';
 
 const ProductFilters = props => {
-  const searchParams = {N: '', Ns: '', No: '0', Nrpp: '12'};
+  // const result = useSelector(store => store.searchRepository.pages['/jeans/category/c20001/'].navigation);
+  const {navigation} = useSelector(getSearchResults);
 
-  const fetchQueryString = Object.keys(searchParams)
-    .map(key => `${key}=${searchParams[key]}`)
-    .join('&');
-
-  const [sortItems, setSortItems] = useState();
-
-  const fetchItems = async () => {
-    const data = await fetch(`/ccstore/v1/search?${fetchQueryString}`, {
-      categoryId: 'c20001'
-    });
-    const result = await data.json();
-    setSortItems(result);
+  const store = useContext(StoreContext);
+  const onFilterChange = e => {
+    const searchParams = {
+      N: e.target.value
+        .split('&')[0]
+        .replace(/\+/g, ' ')
+        .split('')
+        .splice(3)
+        .join('')
+    };
+    if (searchParams) {
+      store.action('search', searchParams);
+    }
   };
-
-  useEffect(() => {
-    fetchItems();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  if (!sortItems) {
-    return null;
-  }
 
   return (
     <Styled id="ProductFilters" css={css}>
       <div className="product-filters">
         <h3 className="product-filters__heading">Refine By:</h3>
-
         <div className="product-filters-section">
-          <Collapsible title={<h4>{sortItems.navigation.navigation[0].displayName}</h4>}>
-            <div className="product-filters-section__price">
-              {sortItems.navigation.navigation[0].refinements.map(item => {
-                return (
-                  <label htmlFor={item.link} key={item.link}>
-                    <input id={item.link} value={item.label} type="checkbox" />
-                    {item.label}
-                  </label>
-                );
-              })}
-            </div>
-          </Collapsible>
-
-          <Collapsible title={<h4>{sortItems.navigation.navigation[1].displayName}</h4>}>
-            <div className="product-filters-section__color">
-              {sortItems.navigation.navigation[1].refinements.map(item => {
-                return (
-                  <label htmlFor={item.link} key={item.link}>
-                    <input id={item.link} value={item.label} type="checkbox" />
-                    {item.label}
-                  </label>
-                );
-              })}
-            </div>
-          </Collapsible>
-
-          <Collapsible title={<h4>{sortItems.navigation.navigation[2].displayName}</h4>}>
-            <div className="product-filters-section__length">
-              {sortItems.navigation.navigation[2].refinements.map(item => {
-                return (
-                  <label htmlFor={item.link} key={item.link}>
-                    <input id={item.link} value={item.label} type="checkbox" />
-                    {item.label}
-                  </label>
-                );
-              })}
-            </div>
-          </Collapsible>
-
-          <Collapsible title={<h4>{sortItems.navigation.navigation[3].displayName}</h4>}>
-            <div className="product-filters-section__waist">
-              {sortItems.navigation.navigation[3].refinements.map(item => {
-                return (
-                  <label htmlFor={item.link} key={item.link}>
-                    <input id={item.link} value={item.label} type="checkbox" />
-                    {item.label}
-                  </label>
-                );
-              })}
-            </div>
-          </Collapsible>
+          {navigation.navigation.map(allItem => {
+            return (
+              <Collapsible title={<h4>{allItem.displayName} </h4>} key={allItem.dimensionName}>
+                <div className="product-filters-section__price">
+                  {allItem.refinements.map(item => {
+                    return (
+                      <label htmlFor={item.label} key={item.label}>
+                        <input id={item.label} value={item.link} type="checkbox" onChange={onFilterChange} />
+                        {item.label}
+                      </label>
+                    );
+                  })}
+                </div>
+              </Collapsible>
+            );
+          })}
         </div>
       </div>
     </Styled>
