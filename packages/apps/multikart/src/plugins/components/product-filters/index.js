@@ -1,19 +1,18 @@
 import React, {useContext} from 'react';
 import {StoreContext} from '@oracle-cx-commerce/react-ui/contexts';
-
 import Styled from '@oracle-cx-commerce/react-components/styled';
 import Collapsible from '@oracle-cx-commerce/react-components/collapsible';
-
 import {useSelector} from '@oracle-cx-commerce/react-components/provider';
 import {getSearchResults} from '@oracle-cx-commerce/commerce-utils/selector';
 
 import css from './styles.scss';
 
 const ProductFilters = props => {
+  const {refine} = props;
   // const result = useSelector(store => store.searchRepository.pages['/jeans/category/c20001/'].navigation);
   const {navigation} = useSelector(getSearchResults);
-
   const store = useContext(StoreContext);
+
   const onFilterChange = e => {
     const searchParams = {
       N: e.target.value
@@ -21,8 +20,12 @@ const ProductFilters = props => {
         .replace(/\+/g, ' ')
         .split('')
         .splice(3)
-        .join('')
+        .join(''),
+      Ns: '',
+      No: '0',
+      Nrpp: '12'
     };
+
     if (searchParams) {
       store.action('search', searchParams);
     }
@@ -31,7 +34,7 @@ const ProductFilters = props => {
   return (
     <Styled id="ProductFilters" css={css}>
       <div className="product-filters">
-        <h3 className="product-filters__heading">Refine By:</h3>
+        <h3 className="product-filters__heading">{refine}:</h3>
         <div className="product-filters-section">
           {navigation.navigation.map(allItem => {
             return (

@@ -5,24 +5,25 @@
   flex-wrap: wrap;
 
   &__item {
-    padding: 3px 7px 3px 10px;
+    padding: 3px 10px;
+    border: none;
     border-radius: 10px;
     background: rgb(240, 240, 240);
     color: #000;
     margin: 2px;
     transition: 0.3s;
     cursor: pointer;
-    &::after {
-      content: "x";
-      font-weight: 300;
-      font-family: Arial, sans-serif;
-      padding: 3px;
-    }
     &:hover {
-        background: rgb(180, 180, 180);
+      background: rgb(180, 180, 180);
     }
     &:last-child {
       margin-right: 0;
+    }
+    &--close::after {
+      content: "X";
+      font-weight: 300;
+      font-family: Arial, sans-serif;
+      margin-left: 5px;
     }
   }
 }
