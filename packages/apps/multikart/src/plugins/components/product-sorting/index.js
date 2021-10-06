@@ -1,23 +1,18 @@
 import React, {useContext} from 'react';
 import Styled from '@oracle-cx-commerce/react-components/styled';
-import {StoreContext} from '@oracle-cx-commerce/react-ui/contexts';
+import FilterContext from '../context';
 
 import css from './styles.scss';
 
 const ProductSorting = props => {
   const {sortBy, ascending, descending} = props;
-  const store = useContext(StoreContext);
+  const {searchParams, setSearchParams} = useContext(FilterContext);
 
   const onSortChange = e => {
-    const searchParams = {
-      N: '',
-      Ns: e.target.value,
-      No: '0',
-      Nrpp: '12'
-    };
-    if (searchParams) {
-      store.action('search', searchParams);
-    }
+    setSearchParams({
+      ...searchParams,
+      Ns: e.target.value
+    });
   };
 
   return (
