@@ -7,7 +7,6 @@ import ProductTile from '../product-tile';
 import css from './styles.scss';
 
 const ProductGrid = props => {
-  // const result = useSelector(state => state.searchRepository.pages['/jeans/category/c20001/'].resultsList.records);
   const {resultsList} = useSelector(getSearchResults);
 
   return (
