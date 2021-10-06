@@ -1,3 +1,7 @@
 {
-  "en": {}
+  "en": {
+    "sortBy": "Sort by",
+    "ascending": "Ascending",
+    "descending": "Descending"
+  }
 }
