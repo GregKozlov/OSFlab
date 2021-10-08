@@ -1,3 +1,6 @@
 {
-  "en": {}
+  "en": {
+    "previous": "Previous",
+    "next": "Next"
+  }
 }
