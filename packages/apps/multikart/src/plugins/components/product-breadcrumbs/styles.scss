@@ -3,6 +3,9 @@
   font-weight: 600;
   display: flex;
   flex-wrap: wrap;
+  @media (max-width: 864px) {
+    margin-top: 10px;
+  }
 
   &__item {
     padding: 3px 10px;
@@ -24,6 +27,9 @@
       font-weight: 300;
       font-family: Arial, sans-serif;
       margin-left: 5px;
+    }
+    @media (max-width: 864px) {
+      font-size: 0.8rem;
     }
   }
 }

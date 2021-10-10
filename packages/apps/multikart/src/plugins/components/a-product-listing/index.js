@@ -18,7 +18,7 @@ const AProductListing = (props, {contextId, pageId, pageType, searchServicePath}
   const {regions = [], configuration = {}} = props;
   const {className = ''} = configuration || {};
 
-  const [searchParams, setSearchParams] = useState({N: '', Ns: '', No: '0', Nrpp: '15'});
+  const [searchParams, setSearchParams] = useState({N: '', Ns: '', No: '0', Nrpp: '12'});
 
   const globalChangeHandler = () => {
     if (searchParams) {

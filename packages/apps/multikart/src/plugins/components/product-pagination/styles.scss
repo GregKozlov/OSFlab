@@ -1,8 +1,12 @@
 .product-pagination {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 15px;
   font-weight: 600;
+  @media (max-width: 864px) {
+    width: 220px;
+  }
 
   &__nav {
     display: flex;
@@ -17,11 +21,15 @@
     &:hover {
       background: rgb(180, 180, 180);
     }
+    @media (max-width: 864px) {
+      display: none;
+    }
   }
 }
 
 .product-pagination-pages {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   &__item {
     display: flex;
@@ -45,5 +53,11 @@
     &--active {
       background: rgb(180, 180, 180);
     }
+    @media (max-width: 864px) {
+      margin: 5px;
+    }
+  }
+  @media (max-width: 864px) {
+    justify-content: center;
   }
 }
