@@ -3,6 +3,7 @@ import Styled from '@oracle-cx-commerce/react-components/styled';
 import {useSelector} from '@oracle-cx-commerce/react-components/provider';
 import {getSearchResults} from '@oracle-cx-commerce/commerce-utils/selector';
 import FilterContext from '../context';
+import {updateHistory} from '../a-product-listing/queryString';
 
 import css from './styles.scss';
 
@@ -23,6 +24,10 @@ const ProductPagination = props => {
       No: e.target.value
     });
     setCurrentPage(e.target.value);
+    updateHistory({
+      ...searchParams,
+      No: e.target.value
+    });
   };
 
   const onNextClick = () => {
@@ -34,6 +39,7 @@ const ProductPagination = props => {
       No: Number(searchParams.No) + Number(searchParams.Nrpp)
     });
     setCurrentPage(searchParams.No + Number(searchParams.Nrpp));
+    updateHistory({...searchParams, No: Number(searchParams.No) + Number(searchParams.Nrpp)});
   };
 
   const onPrevClick = () => {
@@ -45,6 +51,7 @@ const ProductPagination = props => {
       No: Number(searchParams.No) - Number(searchParams.Nrpp)
     });
     setCurrentPage(searchParams.No - Number(searchParams.Nrpp));
+    updateHistory({...searchParams, No: Number(searchParams.No) - Number(searchParams.Nrpp)});
   };
 
   return (

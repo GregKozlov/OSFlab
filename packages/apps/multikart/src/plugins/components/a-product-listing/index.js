@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useContext, useState, useEffect} from 'react';
 import Region from '@oracle-cx-commerce/react-components/region';
 import Styled from '@oracle-cx-commerce/react-components/styled';
@@ -8,28 +9,34 @@ import {useSearchResultsFetcher} from '@oracle-cx-commerce/fetchers/search/fetch
 import {StoreContext} from '@oracle-cx-commerce/react-ui/contexts';
 import css from './styles.scss';
 import FilterContext from '../context';
+import {getQuerySearchParams} from './queryString';
 
 export const fetchers = [fetchSearchResults];
 
 const AProductListing = (props, {contextId, pageId, pageType, searchServicePath}) => {
   const store = useContext(StoreContext);
   useSearchResultsFetcher(store, {contextId, pageId, pageType, searchServicePath});
-
   const {regions = [], configuration = {}} = props;
   const {className = ''} = configuration || {};
+  const [searchParams, setSearchParams] = useState({N: '', Ns: '', No: '0', Nrpp: '10'});
 
-  const [searchParams, setSearchParams] = useState({N: '', Ns: '', No: '0', Nrpp: '12'});
-
-  const globalChangeHandler = () => {
-    if (searchParams) {
+  useEffect(() => {
+    if (searchParams.N) {
       store.action('search', searchParams);
     }
+  }, [searchParams]);
+
+  const queryHandler = () => {
+    const newSearchParams = getQuerySearchParams();
+    setSearchParams(newSearchParams);
+    console.log('------------------newSearchParams---------------------', newSearchParams);
   };
 
   useEffect(() => {
-    globalChangeHandler();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchParams]);
+    window.addEventListener('popstate', queryHandler);
+
+    return () => window.removeEventListener('popstate', queryHandler);
+  }, []);
 
   return (
     <Styled id="Container" css={css}>

@@ -6,6 +6,7 @@ import {getSearchResults} from '@oracle-cx-commerce/commerce-utils/selector';
 import FilterContext from '../context';
 
 import css from './styles.scss';
+import {updateHistory} from '../a-product-listing/queryString';
 
 const ProductFilters = props => {
   const {refine} = props;
@@ -14,6 +15,14 @@ const ProductFilters = props => {
 
   const onFilterChange = e => {
     setSearchParams({
+      ...searchParams,
+      N: e.target.value
+        .split('&')[0]
+        .replace(/\?Nrpp=\d+/gm, '')
+        .replace(/\+/gm, ' ')
+        .replace(/[^0-9 ]/gm, '')
+    });
+    updateHistory({
       ...searchParams,
       N: e.target.value
         .split('&')[0]
@@ -37,6 +46,9 @@ const ProductFilters = props => {
                       <label htmlFor={item.label} key={item.label}>
                         <input id={item.label} value={item.link} type="checkbox" onChange={onFilterChange} />
                         {item.label}
+                        {/* <button type="button" onClick={test}>
+                          test
+                        </button> */}
                       </label>
                     );
                   })}

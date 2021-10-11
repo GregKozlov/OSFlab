@@ -4,6 +4,7 @@ import {useSelector} from '@oracle-cx-commerce/react-components/provider';
 import {getSearchResults} from '@oracle-cx-commerce/commerce-utils/selector';
 import css from './styles.scss';
 import FilterContext from '../context';
+import {updateHistory} from '../a-product-listing/queryString';
 
 const ProductBreadcrumbs = props => {
   const {breadcrumbs} = useSelector(getSearchResults);
@@ -11,6 +12,14 @@ const ProductBreadcrumbs = props => {
 
   const onCrumbsChange = e => {
     setSearchParams({
+      ...searchParams,
+      N: e.target.value
+        .split('&')[0]
+        .replace(/\?Nrpp=\d+/gm, '')
+        .replace(/\+/gm, ' ')
+        .replace(/[^0-9 ]/gm, '')
+    });
+    updateHistory({
       ...searchParams,
       N: e.target.value
         .split('&')[0]

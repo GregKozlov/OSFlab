@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import Styled from '@oracle-cx-commerce/react-components/styled';
 import FilterContext from '../context';
+import {updateHistory} from '../a-product-listing/queryString';
 
 import css from './styles.scss';
 
@@ -10,6 +11,10 @@ const ProductSorting = props => {
 
   const onSortChange = e => {
     setSearchParams({
+      ...searchParams,
+      Ns: e.target.value
+    });
+    updateHistory({
       ...searchParams,
       Ns: e.target.value
     });
