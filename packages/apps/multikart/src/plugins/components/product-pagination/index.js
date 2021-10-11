@@ -1,23 +1,19 @@
-import React, { useContext, useState } from "react";
-import Styled from "@oracle-cx-commerce/react-components/styled";
-import { useSelector } from "@oracle-cx-commerce/react-components/provider";
-import { getSearchResults } from "@oracle-cx-commerce/commerce-utils/selector";
-import FilterContext from "../context";
+import React, {useContext, useState} from 'react';
+import Styled from '@oracle-cx-commerce/react-components/styled';
+import {useSelector} from '@oracle-cx-commerce/react-components/provider';
+import {getSearchResults} from '@oracle-cx-commerce/commerce-utils/selector';
+import FilterContext from '../context';
 
-import css from "./styles.scss";
+import css from './styles.scss';
 
 const ProductPagination = props => {
-  const { previous, next } = props;
-  const { resultsList } = useSelector(getSearchResults);
-  const { searchParams, setSearchParams } = useContext(FilterContext);
+  const {previous, next} = props;
+  const {resultsList} = useSelector(getSearchResults);
+  const {searchParams, setSearchParams} = useContext(FilterContext);
   const [currentPage, setCurrentPage] = useState(0);
 
   const pageNumbers = [];
-  for (
-    let i = 0;
-    i < Math.ceil(resultsList.totalNumRecs / searchParams.Nrpp);
-    i++
-  ) {
+  for (let i = 0; i < Math.ceil(resultsList.totalNumRecs / searchParams.Nrpp); i++) {
     pageNumbers.push(i);
   }
 
@@ -30,40 +26,31 @@ const ProductPagination = props => {
   };
 
   const onNextClick = () => {
-    if (
-      Number(searchParams.No) >=
-      Number(resultsList.totalNumRecs) - Number(searchParams.Nrpp)
-    ) {
+    if (Number(searchParams.No) >= Number(resultsList.totalNumRecs) - Number(searchParams.Nrpp)) {
       return null;
-    } else {
-      setSearchParams({
-        ...searchParams,
-        No: Number(searchParams.No) + Number(searchParams.Nrpp)
-      });
-      setCurrentPage(searchParams.No + Number(searchParams.Nrpp));
     }
+    setSearchParams({
+      ...searchParams,
+      No: Number(searchParams.No) + Number(searchParams.Nrpp)
+    });
+    setCurrentPage(searchParams.No + Number(searchParams.Nrpp));
   };
 
   const onPrevClick = () => {
     if (Number(searchParams.No) <= 0) {
       return null;
-    } else {
-      setSearchParams({
-        ...searchParams,
-        No: Number(searchParams.No) - Number(searchParams.Nrpp)
-      });
-      setCurrentPage(searchParams.No - Number(searchParams.Nrpp));
     }
+    setSearchParams({
+      ...searchParams,
+      No: Number(searchParams.No) - Number(searchParams.Nrpp)
+    });
+    setCurrentPage(searchParams.No - Number(searchParams.Nrpp));
   };
 
   return (
     <Styled id="ProductPagination" css={css}>
       <div className="product-pagination">
-        <button
-          type="button"
-          className="product-pagination__nav"
-          onClick={onPrevClick}
-        >
+        <button type="button" className="product-pagination__nav" onClick={onPrevClick}>
           {previous}
         </button>
         <div className="product-pagination-pages">
@@ -74,10 +61,9 @@ const ProductPagination = props => {
                 onClick={onPaginationClick}
                 type="button"
                 className={
-                  Number(currentPage) ===
-                  Number(item * Number(searchParams.Nrpp))
-                    ? "product-pagination-pages__item product-pagination-pages__item--active"
-                    : "product-pagination-pages__item"
+                  Number(currentPage) === Number(item * Number(searchParams.Nrpp))
+                    ? 'product-pagination-pages__item product-pagination-pages__item--active'
+                    : 'product-pagination-pages__item'
                 }
                 key={item}
               >
@@ -86,11 +72,7 @@ const ProductPagination = props => {
             );
           })}
         </div>
-        <button
-          type="button"
-          className="product-pagination__nav"
-          onClick={onNextClick}
-        >
+        <button type="button" className="product-pagination__nav" onClick={onNextClick}>
           {next}
         </button>
       </div>
