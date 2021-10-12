@@ -48,7 +48,7 @@ export const processInput = (payload, state) => {
 
     if (dimensionId) {
       // For a dimension ID, append a path using the specific format shown below.
-      searchUrl += `/_/N-${dimensionId}`;
+      searchUrl += `/_/N=${dimensionId}`;
     } else {
       // Determine if non-query portion of the given URL includes an extra path, by
       // stripping off the first component (which corresponds to the page route),
@@ -60,6 +60,21 @@ export const processInput = (payload, state) => {
         searchUrl += `/${extraPath}`;
       }
     }
+
+    // if (dimensionId) {
+    //   // For a dimension ID, append a path using the specific format shown below.
+    //   searchUrl += `/_/N-${dimensionId}`;
+    // } else {
+    //   // Determine if non-query portion of the given URL includes an extra path, by
+    //   // stripping off the first component (which corresponds to the page route),
+    //   // along with its two enclosing forward-slashes.
+    //   // (e.g. Replace '/search/_/N-1234' with '_/N-1234')
+    //   const path = query ? url.substring(0, queryIndex) : url;
+    //   const extraPath = path.replace(/^\/.*?\//, '');
+    //   if (extraPath) {
+    //     searchUrl += `/${extraPath}`;
+    //   }
+    // }
   } else {
     // As a convenience: if none of the above criteria are met, we assume
     // that the entire payload comprises query parameters.

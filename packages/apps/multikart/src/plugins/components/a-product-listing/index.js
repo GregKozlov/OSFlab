@@ -2,7 +2,7 @@
 import React, {useContext, useState, useEffect} from 'react';
 import Region from '@oracle-cx-commerce/react-components/region';
 import Styled from '@oracle-cx-commerce/react-components/styled';
-import {getPage, getSearchResults, getCategory} from '@oracle-cx-commerce/commerce-utils/selector';
+import {getPage, getCategory} from '@oracle-cx-commerce/commerce-utils/selector';
 import {connect} from '@oracle-cx-commerce/react-components/provider';
 import {fetchSearchResults} from '@oracle-cx-commerce/fetchers/search/fetch-search-results';
 import {useSearchResultsFetcher} from '@oracle-cx-commerce/fetchers/search/fetch-search-results/hook';
@@ -29,7 +29,6 @@ const AProductListing = (props, {contextId, pageId, pageType, searchServicePath}
   const queryHandler = () => {
     const newSearchParams = getQuerySearchParams();
     setSearchParams(newSearchParams);
-    console.log('------------------newSearchParams---------------------', newSearchParams);
   };
 
   useEffect(() => {
@@ -51,4 +50,4 @@ const AProductListing = (props, {contextId, pageId, pageType, searchServicePath}
   );
 };
 
-export default connect(getCategory)(connect(getSearchResults)(connect(getPage)(AProductListing)));
+export default connect(getCategory)(connect(getPage)(AProductListing));
