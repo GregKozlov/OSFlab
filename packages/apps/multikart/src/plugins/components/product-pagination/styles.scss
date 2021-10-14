@@ -5,7 +5,9 @@
   margin-top: 15px;
   font-weight: 600;
   @media (max-width: 864px) {
-    width: 220px;
+    width: 380px;
+    margin: 0 auto;
+    margin-top: 20px;
   }
 
   &__nav {
