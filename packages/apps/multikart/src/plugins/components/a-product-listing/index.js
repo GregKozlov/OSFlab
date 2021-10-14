@@ -15,13 +15,26 @@ export const fetchers = [fetchSearchResults];
 
 const AProductListing = (props, {contextId, pageId, pageType, searchServicePath}) => {
   const store = useContext(StoreContext);
-  useSearchResultsFetcher(store, {contextId, pageId, pageType, searchServicePath});
+  useSearchResultsFetcher(store, {
+    contextId,
+    pageId,
+    pageType,
+    searchServicePath
+  });
   const {regions = [], configuration = {}} = props;
   const {className = ''} = configuration || {};
-  const [searchParams, setSearchParams] = useState({N: '', Ns: '', No: '0', Nrpp: '10'});
+
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const [searchParams, setSearchParams] = useState({
+    N: props.dimensionId,
+    Ns: '',
+    No: '',
+    Nrpp: '10'
+  });
 
   useEffect(() => {
-    if (searchParams.N) {
+    if (searchParams.N || searchParams.Ns || searchParams.No) {
       store.action('search', searchParams);
     }
   }, [searchParams]);
@@ -39,7 +52,7 @@ const AProductListing = (props, {contextId, pageId, pageType, searchServicePath}
 
   return (
     <Styled id="Container" css={css}>
-      <FilterContext.Provider value={{searchParams, setSearchParams}}>
+      <FilterContext.Provider value={{searchParams, setSearchParams, setCurrentPage, currentPage}}>
         <section className={`Container__Section ${className}`}>
           {regions.map(regionId => (
             <Region key={regionId} regionId={regionId} />

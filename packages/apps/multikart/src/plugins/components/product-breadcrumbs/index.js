@@ -8,7 +8,7 @@ import {updateHistory} from '../a-product-listing/queryString';
 
 const ProductBreadcrumbs = props => {
   const {breadcrumbs} = useSelector(getSearchResults);
-  const {searchParams, setSearchParams} = useContext(FilterContext);
+  const {searchParams, setSearchParams, setCurrentPage} = useContext(FilterContext);
 
   const onCrumbsChange = e => {
     setSearchParams({
@@ -17,15 +17,18 @@ const ProductBreadcrumbs = props => {
         .split('&')[0]
         .replace(/\?Nrpp=\d+/gm, '')
         .replace(/\+/gm, ' ')
-        .replace(/[^0-9 ]/gm, '')
+        .replace(/[^0-9 ]/gm, ''),
+      No: '0'
     });
+    setCurrentPage('0');
     updateHistory({
       ...searchParams,
       N: e.target.value
         .split('&')[0]
         .replace(/\?Nrpp=\d+/gm, '')
         .replace(/\+/gm, ' ')
-        .replace(/[^0-9 ]/gm, '')
+        .replace(/[^0-9 ]/gm, ''),
+      No: '0'
     });
   };
 

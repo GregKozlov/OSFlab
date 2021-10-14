@@ -11,7 +11,7 @@ import {updateHistory} from '../a-product-listing/queryString';
 const ProductFilters = props => {
   const {refine} = props;
   const {navigation} = useSelector(getSearchResults);
-  const {searchParams, setSearchParams} = useContext(FilterContext);
+  const {searchParams, setSearchParams, setCurrentPage} = useContext(FilterContext);
 
   const onFilterChange = e => {
     setSearchParams({
@@ -20,15 +20,18 @@ const ProductFilters = props => {
         .split('&')[0]
         .replace(/\?Nrpp=\d+/gm, '')
         .replace(/\+/gm, ' ')
-        .replace(/[^0-9 ]/gm, '')
+        .replace(/[^0-9 ]/gm, ''),
+      No: '0'
     });
+    setCurrentPage('0');
     updateHistory({
       ...searchParams,
       N: e.target.value
         .split('&')[0]
         .replace(/\?Nrpp=\d+/gm, '')
         .replace(/\+/gm, ' ')
-        .replace(/[^0-9 ]/gm, '')
+        .replace(/[^0-9 ]/gm, ''),
+      No: '0'
     });
   };
 
@@ -46,9 +49,6 @@ const ProductFilters = props => {
                       <label htmlFor={item.label} key={item.label}>
                         <input id={item.label} value={item.link} type="checkbox" onChange={onFilterChange} />
                         {item.label}
-                        {/* <button type="button" onClick={test}>
-                          test
-                        </button> */}
                       </label>
                     );
                   })}

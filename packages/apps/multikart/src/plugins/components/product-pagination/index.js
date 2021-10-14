@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import Styled from '@oracle-cx-commerce/react-components/styled';
 import {useSelector} from '@oracle-cx-commerce/react-components/provider';
 import {getSearchResults} from '@oracle-cx-commerce/commerce-utils/selector';
@@ -10,8 +10,7 @@ import css from './styles.scss';
 const ProductPagination = props => {
   const {previous, next} = props;
   const {resultsList} = useSelector(getSearchResults);
-  const {searchParams, setSearchParams} = useContext(FilterContext);
-  const [currentPage, setCurrentPage] = useState(0);
+  const {searchParams, setSearchParams, currentPage, setCurrentPage} = useContext(FilterContext);
 
   const pageNumbers = [];
   for (let i = 0; i < Math.ceil(resultsList.totalNumRecs / searchParams.Nrpp); i++) {
