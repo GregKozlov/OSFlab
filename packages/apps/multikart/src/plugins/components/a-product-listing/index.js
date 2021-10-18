@@ -35,13 +35,13 @@ const AProductListing = (props, {contextId, pageId, pageType, searchServicePath}
   });
 
   useEffect(() => {
-    if (searchParams.N || searchParams.Ns || searchParams.No) {
+    if (searchParams.Ns || searchParams.No) {
       store.action('search', searchParams);
     }
   }, [searchParams]);
 
   const queryHandler = () => {
-    const newSearchParams = getQuerySearchParams();
+    const newSearchParams = getQuerySearchParams(props.dimensionId);
     setSearchParams(newSearchParams);
   };
 
