@@ -14,6 +14,8 @@ import {getQuerySearchParams} from './queryString';
 
 export const fetchers = [fetchSearchResults];
 
+// http://localhost:3006/jeans/category/c20001
+
 const AProductListing = (props, {contextId, pageId, pageType, searchServicePath}) => {
   const store = useContext(StoreContext);
   useSearchResultsFetcher(store, {
